@@ -102,7 +102,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Configurable Title</a>
+            <a class="navbar-brand" href="/">Lazy Cat, IT Blog</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -142,7 +142,7 @@
                     </li>
                 
                     <li>
-                        <a href="https://github.com/klugjo/hexo-theme-clean-blog">
+                        <a href="https://github.com/Bozwell/bozwell.github.io">
                             
                                 <i class="fa fa-github fa-stack-2x"></i>
                             
@@ -187,13 +187,27 @@
 
             <!-- Tags and categories -->
            
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/ssh/">#ssh</a> <a href="/tags/pam-google-authenticator/">#pam_google_authenticator</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
 
             <!-- Gallery -->
             
 
             <!-- Post Main Content -->
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>본 문서는 ssh 연걸시 2FA(google OTP)를 적용하는 방법에 대해 기술하고 있습니다. 민감한 서비스에 SSH Shell접속시 추가인증수단을 통해 접근보안 강화할수 있습니다.</p>
+                <h2 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h2><p>본 문서는 ssh 연결시 2FA(google OTP)를 적용하는 방법에 대해 기술하고 있습니다. 민감한 서비스에 SSH Shell접속시 추가인증수단을 통해 접근보안 강화할수 있습니다.</p>
 <h2 id="Google’s-PAM-설치"><a href="#Google’s-PAM-설치" class="headerlink" title="Google’s PAM 설치"></a>Google’s PAM 설치</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt update</span><br><span class="line">$ sudo apt install -y libpam-google-authenticator</span><br></pre></td></tr></table></figure>
 <h2 id="SSH-설정"><a href="#SSH-설정" class="headerlink" title="SSH 설정"></a>SSH 설정</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vi /etc/pam.d/sshd</span><br></pre></td></tr></table></figure>
 <p>편집기로 /etc/pam.d/sshd 파일의 마지막 라인에 auth required pam_google_authenticator.so nullok를 추가합니다.</p>
@@ -242,7 +256,7 @@
 
                     
                         <li>
-                            <a href="https://github.com/klugjo/hexo-theme-clean-blog" target="_blank">
+                            <a href="https://github.com/Bozwell/bozwell.github.io" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
