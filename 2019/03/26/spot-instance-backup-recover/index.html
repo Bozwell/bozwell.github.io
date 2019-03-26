@@ -249,10 +249,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="인스턴스-백업"><a href="#인스턴스-백업" class="headerlink" title="인스턴스 백업"></a>인스턴스 백업</h3><p>Spot Interruption이 자주 일어나는편은 아니지만 만약을 대비를 게으른 고양이는 instance를 AMI로 매일 백업하고 있다.</p>
+<h3 id="인스턴스-백업"><a href="#인스턴스-백업" class="headerlink" title="인스턴스 백업"></a>인스턴스 백업</h3><p>Spot Instance를 사용하면 Spot Interruption에 대비해야한다. Spot Interruption이 자주 일어나는편은 아니지만 만약을 대비해 게으른 고양이는 instance를 AMI로 매일 백업하고 있다.</p>
 <ul>
 <li>소스코드 설명<ul>
-<li>인스턴스 Tag를 보고 AMI로 생성하고, 생성시 description에 <mark>spot_instance_backup</mark>이라고 명기하여<br>AMI 백업프로그램에 의해 백업되었음을 기록한다.</li>
+<li>인스턴스 Tag를 보고 AMI로 생성하고, 생성시 description에 <mark>spot_instance_backup</mark>이라고 명기하여<br>AMI 백업프로그램에 의해 백업 되었음을 기록한다.</li>
 <li>소스코드에서 <mark>owner 아이디</mark>라고 표시된 부분은 본인 AWS Account의 아이디를 넣아야 한다.</li>
 <li><mark>if delta.days &gt; 1:</mark> 부분을 보면 1일이 지난 백업본은 삭제 하도록 되어 있으며 이때 snapshot volume도 삭제한다.</li>
 </ul>
