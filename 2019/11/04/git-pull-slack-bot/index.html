@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="tags">
+        <meta property="og:title" content="git_pull_slack_bot">
     
 
     <!--Open Graph Description-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>tags - Lazy Cat, IT Blog</title>
+    <title>git_pull_slack_bot - Lazy Cat, IT Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -157,75 +157,66 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-
-    <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>tags</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                
-                    <div class="post-preview">
-    <a href="/tags/docker/">
-        <h1 class="post-title archive">
-            docker
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/ssh/">
-        <h1 class="post-title archive">
-            ssh
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/pam-google-authenticator/">
-        <h1 class="post-title archive">
-            pam_google_authenticator
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/aws/">
-        <h1 class="post-title archive">
-            aws
-        </h1>
-    </a>
-</div>
-                
-                    <div class="post-preview">
-    <a href="/tags/boto3/">
-        <h1 class="post-title archive">
-            boto3
-        </h1>
-    </a>
-</div>
-                
-                <div class="archive-before-pagination"></div>
+                <div class="post-heading">
+                    <h1>git_pull_slack_bot</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-11-04
+                        
+                    </span>
+                </div>
             </div>
         </div>
     </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="git-pull-slack-bot"><a href="#git-pull-slack-bot" class="headerlink" title="git_pull_slack_bot"></a>git_pull_slack_bot</h1><p>Terraform code repository를 여러 사람이 함께 사용하다 보면, 코드를 작성할때 다른 사람이 push한것을 pull 하지않아, conflict가 생기는 경우가 종종 있습니다. 어느날 귀찮니즘이 발동하여 이를 자동화할 수 있는 도구를 만들어 보았습니다.</p>
+<p>동작 방식은 이렇습니다.</p>
+<ul>
+<li>보스웰의 회사는 GitLab, slack를 사용하고 있습니다.</li>
+<li>GitLab repository에 push 발생시 slack으로 notification 하도록 설정하였습니다.</li>
+<li>python으로 <a href="https://github.com/Bozwell/devops-works/tree/master/git_pull_slack_bot" target="_blank" rel="noopener">slackbot</a>를 만들어서 repository이름이 발견되면 local repository를 업데이트 합니다. (소스코드는 위의 slackbot link 참조)</li>
+</ul>
+<p>사용해보니 많이 편합니다. 하지만 소스코드가 모듈화 되어 있지 않다면 해당 모듈을 코딩하고 있을때  업데이트가 이루어 져서 conflict가 발생할 수 있으므로 주의해야 할것 같<br>습니다. 보스웰의 팀은 테라폼 코드를 모듈로 세분화해서 이런 경우가 거의 없습니다. Terraform 모듈화 사례에 대해서는 다음 포스트에서 소개해 드리도록 하겠습니다.</p>
 
 
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
 
 
-
+                </div>
+            
+        </div>
+    </div>
+</article>
 
     <!-- Footer -->
     <hr>
