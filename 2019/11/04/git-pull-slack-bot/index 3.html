@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="bozwell">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="git_pull_slack_bot">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Lazy Cat, IT Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>git_pull_slack_bot - Lazy Cat, IT Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lazy Cat, IT Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://bozwell.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>git_pull_slack_bot</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-11-04
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="git-pull-slack-bot"><a href="#git-pull-slack-bot" class="headerlink" title="git_pull_slack_bot"></a>git_pull_slack_bot</h1><p>Terraform code repository를 여러 사람이 함께 사용하다 보면, 코드를 작성할때 다른 사람이 push한것을 pull 하지않아, conflict가 생기는 경우가 종종 있습니다. 어느날 귀찮니즘이 발동하여 이를 자동화할 수 있는 도구를 만들어 보았습니다.</p>
+<p>동작 방식은 이렇습니다.</p>
+<ul>
+<li>보스웰의 회사는 GitLab, slack를 사용하고 있습니다.</li>
+<li>GitLab repository에 push 발생시 slack으로 notification 하도록 설정하였습니다.</li>
+<li>python으로 <a href="https://github.com/Bozwell/devops-works/tree/master/git_pull_slack_bot" target="_blank" rel="noopener">slackbot</a>를 만들어서 repository이름이 발견되면 local repository를 업데이트 합니다. </li>
+</ul>
+<p>사용해보니 많이 편합니다. 하지만 소스코드가 모듈화 되어 있지 않다면 해당 모듈을 코딩하고 있을때  업데이트가 이루어 져서 conflict가 발생할 수 있으므로 주의해야 할것 같<br>습니다. 보스웰의 팀은 테라폼 코드를 모듈로 세분화해서 이런 경우가 거의 없습니다. Terraform 모듈화 사례에 대해서는 다음 포스트에서 소개해 드리도록 하겠습니다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line">from slacker import Slacker</span><br><span class="line">import websockets</span><br><span class="line">import asyncio</span><br><span class="line">import json</span><br><span class="line">import os</span><br><span class="line">import logging</span><br><span class="line">from logging.handlers import TimedRotatingFileHandler</span><br><span class="line"></span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">dependency install</span><br><span class="line">    pip3 install slacker</span><br><span class="line">    pip3 install websockets </span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line"></span><br><span class="line"># slack token</span><br><span class="line">TOKEN = &quot;&quot;</span><br><span class="line"></span><br><span class="line">LOCAL_GIT_REPO_PREFIX = &quot;/IaC/prod/&quot;</span><br><span class="line"></span><br><span class="line">REPO_LST =[</span><br><span class="line">    &quot;terraform-stage&quot;,</span><br><span class="line">    &quot;terraform-prod&quot;,</span><br><span class="line">    &quot;packer&quot;</span><br><span class="line">    ]</span><br><span class="line"></span><br><span class="line">STAGE_GIT_REPO_NM = &quot;terraform-stage&quot;</span><br><span class="line">PROD_GIT_REPO_NM = &quot;terraform-prod&quot;</span><br><span class="line"></span><br><span class="line">LOG_DIR = &quot;./&quot;</span><br><span class="line">LOG_FILE_NM = &quot;slack_bot.log&quot;</span><br><span class="line">LOGGING_LOC = &quot;&#123;&#125;&#123;&#125;&quot;.format(LOG_DIR, LOG_FILE_NM)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Create a custom logger</span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line">FORMAT = &apos;%(asctime)-15s %(message)s&apos;</span><br><span class="line"></span><br><span class="line"># logging</span><br><span class="line">logger = logging.getLogger()</span><br><span class="line">handler = TimedRotatingFileHandler(LOGGING_LOC, when=&quot;midnight&quot;)</span><br><span class="line">handler.setFormatter(logging.Formatter(FORMAT))</span><br><span class="line">logger.setLevel(logging.INFO)</span><br><span class="line">logger.addHandler(handler)</span><br><span class="line">logger.addHandler(logging.StreamHandler())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">slack = Slacker(TOKEN)</span><br><span class="line"></span><br><span class="line">response = slack.rtm.start()</span><br><span class="line">endpoint = response.body[&apos;url&apos;]</span><br><span class="line">print(&quot;endpoint : &#123;&#125;&quot;.format(endpoint))</span><br><span class="line">logger.info(&quot;endpoint : &#123;&#125;&quot;.format(endpoint))</span><br><span class="line"></span><br><span class="line">def get_cmd(target_dir):</span><br><span class="line">    return &quot;git -C &#123;&#125;&#123;&#125; pull&quot;.format(LOCAL_GIT_REPO_PREFIX, target_dir)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">async def excute_bot():</span><br><span class="line">    ws = await websockets.connect(endpoint)</span><br><span class="line">    while True:</span><br><span class="line">        message_json = await ws.recv()</span><br><span class="line">        m = json.loads(message_json)</span><br><span class="line">        print(m)</span><br><span class="line">        logger.info(&quot;msg : &#123;&#125;&quot;.format(m))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        if &apos;subtype&apos; in m.keys() and m[&apos;subtype&apos;] == &apos;bot_message&apos;:</span><br><span class="line">            text = m[&apos;text&apos;]</span><br><span class="line"></span><br><span class="line">            for repo in REPO_LST:</span><br><span class="line">                if text.find(repo) != -1:</span><br><span class="line">                    os.system(get_cmd(repo))</span><br><span class="line">                    logger.info(&quot;git pull repo : &#123;&#125;&quot;.format(repo))</span><br><span class="line">                    break</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    for repo in REPO_LST:</span><br><span class="line">        os.system(get_cmd(repo))</span><br><span class="line">        </span><br><span class="line">    loop = asyncio.new_event_loop()</span><br><span class="line">    asyncio.set_event_loop(loop)</span><br><span class="line">    asyncio.get_event_loop().run_until_complete(excute_bot())</span><br><span class="line">    asyncio.get_event_loop().run_forever()</span><br></pre></td></tr></table></figure>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://bozwell.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 bozwell<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

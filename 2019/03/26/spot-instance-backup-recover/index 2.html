@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="bozwell">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="aws spot instance backup recover">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Lazy Cat, IT Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>aws spot instance backup recover - Lazy Cat, IT Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lazy Cat, IT Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://bozwell.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>aws spot instance backup recover</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-03-26
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/aws/">#aws</a> <a href="/tags/boto3/">#boto3</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                        
+
+<a href="/categories/DEVOPS/">DEVOPS</a>
+
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="AWS-Spot-Instance-Backup-Recover"><a href="#AWS-Spot-Instance-Backup-Recover" class="headerlink" title="AWS Spot Instance Backup Recover"></a>AWS Spot Instance Backup Recover</h1><h3 id="들어가기에-앞서"><a href="#들어가기에-앞서" class="headerlink" title="들어가기에 앞서.."></a>들어가기에 앞서..</h3><p>최근회사에서 AWS 비용절감을 위해 spot인스턴스를 활용하고 있다.<br>필요 할때만 running시키고, 그외에는 stop하는게 가장 비용이 저렴하지만, 항상 가동해야 한다면 Spot Instance를 사용하는것이 답이 될수 있다.</p>
+<p>먼저 On-demand Instance, Spot Instance, RI(Reserved Instance)에 대해 알아보자.</p>
+<ul>
+<li>On-demand Instance<ul>
+<li>기본적으로 사용하는 인스턴스 라이프사이클</li>
+<li>인스턴스가 running상태일때 과금되며, stop할수 있다.</li>
+</ul>
+</li>
+<li><p>Spot Instance</p>
+<ul>
+<li>아마존의 예비자원을 경매형식으로 구매하는 인스턴스</li>
+<li>스팟인스턴스와 온디멘드 인스턴스의 성능상의 차이는 없다고 한다.</li>
+<li>인스턴스 타입에 따라 최대 90% 저렴하다고 하는데 많이 사용하는 t2, m4와 같은 범용 인스턴스 타입의 경우 온디멘트 인스턴스 비해 1/4 수준이다.</li>
+<li>인스턴스를 중지(stop)할수 없다. restart는 가능하다.</li>
+<li>경매방식이어서 가격변동이 있을수 있고 예비자원을 사용하는것이기 때문에, 인스턴스 자원이 회수될수 있다. (Spot Interruption)</li>
+<li>Spot Interruption이 발생하면 설정에 따라 terminate, stopped 상태가 되는데, 이때 스팟 인스턴스를 다시 시작할수 없으며 새로 만들어야 한다. AMI를 이미지를 만들기 위해 Spot 인스턴스 생성시 Interruption발생시 stoped되도록 설정하는것이 좋다.</li>
+</ul>
+</li>
+<li><p>Reserved Instance</p>
+<ul>
+<li>약정할인과 같은 개념이다.</li>
+<li>1년 또는 3년을 선택할수 있다. 할인율이 매년 변할수 있으므로 1년이 좋다고 한다.</li>
+<li>일시납부, 월분납을 선택할수 있으며 월분납시 매월초 그달 비용이 적용된다.</li>
+<li>인스턴스 중지(stop)하거나 삭제(terminate)해도 약정기간동안 비용이 청구된다.</li>
+</ul>
+</li>
+</ul>
+<p>아래는 서울리전에서 m4.large 타입의 인스턴스를 만들때 월 비용을 비교해본것이다.</p>
+<ul>
+<li>instace_type : m4.large<ul>
+<li>on-demand : $90.04</li>
+<li>RI 1Year NoUpfront : $53.66</li>
+<li>RI 3Year NoUpfront : $39.42</li>
+<li>spot : $21.6</li>
+</ul>
+</li>
+</ul>
+<h3 id="인스턴스-백업"><a href="#인스턴스-백업" class="headerlink" title="인스턴스 백업"></a>인스턴스 백업</h3><p>Spot Instance를 사용하면 Spot Interruption에 대비해야한다. Spot Interruption이 자주 일어나는편은 아니지만 만약을 대비해 게으른 고양이는 instance를 AMI로 매일 백업하고 있다.</p>
+<ul>
+<li>소스코드 설명<ul>
+<li>인스턴스 Tag를 보고 AMI로 생성하고, 생성시 description에 <mark>spot_instance_backup</mark>이라고 명기하여<br>AMI 백업프로그램에 의해 백업 되었음을 기록한다.</li>
+<li>소스코드에서 <mark>owner 아이디</mark>라고 표시된 부분은 본인 AWS Account의 아이디를 넣아야 한다.</li>
+<li><mark>if delta.days &gt; 1:</mark> 부분을 보면 1일이 지난 백업본은 삭제 하도록 되어 있으며 이때 snapshot volume도 삭제한다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">regions = [<span class="string">'ap-northeast-2'</span>]</span><br><span class="line"><span class="keyword">for</span> region <span class="keyword">in</span> regions:</span><br><span class="line"></span><br><span class="line">    ec2_client = boto3.client(<span class="string">'ec2'</span>, region_name=region)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># describe instances</span></span><br><span class="line">    desc_ins_res = ec2_client.describe_instances(</span><br><span class="line">        Filters = [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">"Name"</span>:<span class="string">"tag:is_bkup"</span>,</span><br><span class="line">                <span class="string">"Values"</span>:[<span class="string">"true"</span>]</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">"Name"</span>: <span class="string">"tag:is_spot"</span>,</span><br><span class="line">                <span class="string">"Values"</span>: [<span class="string">"true"</span>]</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> instances_obj <span class="keyword">in</span> desc_ins_res[<span class="string">'Reservations'</span>]:</span><br><span class="line">        <span class="comment"># print instances_obj</span></span><br><span class="line">        <span class="keyword">for</span> instance <span class="keyword">in</span> instances_obj[<span class="string">'Instances'</span>]:</span><br><span class="line"></span><br><span class="line">            instance_name = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> tag <span class="keyword">in</span> instance[<span class="string">'Tags'</span>]:</span><br><span class="line">                <span class="keyword">if</span> tag[<span class="string">'Key'</span>] == <span class="string">'Name'</span>:</span><br><span class="line">                    instance_name = tag[<span class="string">'Value'</span>]</span><br><span class="line">                    <span class="comment"># break</span></span><br><span class="line"></span><br><span class="line">            instance_id = instance[<span class="string">'InstanceId'</span>]</span><br><span class="line"></span><br><span class="line">            print(instance_name, instance_id)</span><br><span class="line"></span><br><span class="line">            now = datetime.today().strftime(<span class="string">"%Y%m%d%H%M%S"</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment">#create ami</span></span><br><span class="line">            res = ec2_client.create_image(</span><br><span class="line">                InstanceId=instance_id,</span><br><span class="line">                Name=now + <span class="string">"-"</span> + instance_name,</span><br><span class="line">                Description=<span class="string">'spot_instance_backup'</span>,</span><br><span class="line">                NoReboot=<span class="literal">True</span></span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">            print(res)</span><br><span class="line"></span><br><span class="line">            time.sleep(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># deleting old ami</span></span><br><span class="line">    desc_img_res =  ec2_client.describe_images(</span><br><span class="line">        Owners=[<span class="string">'owner 아이디'</span>],</span><br><span class="line"></span><br><span class="line">        Filters = [</span><br><span class="line">            &#123;<span class="string">"Name"</span>:<span class="string">"description"</span>, <span class="string">"Values"</span>:[<span class="string">"spot_instance_backup"</span>,]&#125;</span><br><span class="line">        ]</span><br><span class="line">    )</span><br><span class="line">    today = datetime.today()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> image <span class="keyword">in</span> desc_img_res[<span class="string">'Images'</span>]:</span><br><span class="line">        delta = today - datetime.strptime(image[<span class="string">'Name'</span>][<span class="number">0</span>:<span class="number">14</span>],<span class="string">"%Y%m%d%H%M%S"</span>)</span><br><span class="line">        <span class="keyword">if</span> delta.days &gt; <span class="number">1</span>:</span><br><span class="line"></span><br><span class="line">            ec2_client.deregister_image(</span><br><span class="line">                ImageId = image[<span class="string">'ImageId'</span>]</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> blk <span class="keyword">in</span> image[<span class="string">'BlockDeviceMappings'</span>]:</span><br><span class="line">                <span class="keyword">if</span> <span class="string">'Ebs'</span> <span class="keyword">in</span> blk:</span><br><span class="line">                    ec2_client.delete_snapshot(</span><br><span class="line">                        SnapshotId=blk[<span class="string">'Ebs'</span>][<span class="string">'SnapshotId'</span>])</span><br><span class="line"></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="AWS-Spot-Interruption에-발생시-인스턴스-복구"><a href="#AWS-Spot-Interruption에-발생시-인스턴스-복구" class="headerlink" title="AWS Spot Interruption에 발생시 인스턴스 복구"></a>AWS Spot Interruption에 발생시 인스턴스 복구</h3><ul>
+<li>소스코드 설명<ul>
+<li>requirement : boto3, python-telegram-bot</li>
+<li>spot interruption이 있는지 검사해서 최근 백업본 이미지로 spot인스턴스를 새로 생성하는 스크립트이다. 세부설명은 주석을 살펴보기 바란다.</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment">#!/usr/bin/python3</span></span><br><span class="line"><span class="keyword">import</span> boto3</span><br><span class="line"><span class="keyword">import</span> telegram</span><br><span class="line"><span class="keyword">import</span> operator</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">telegram_token = <span class="string">''</span></span><br><span class="line">TELEGRAM_CHAT_ID = <span class="string">''</span></span><br><span class="line">OWNER_ID = <span class="string">''</span></span><br><span class="line">bot = telegram.Bot(token=telegram_token)</span><br><span class="line"></span><br><span class="line">regions = [<span class="string">'ap-northeast-2'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> region <span class="keyword">in</span> regions:</span><br><span class="line">    ec2_client = boto3.client(<span class="string">'ec2'</span>, region)</span><br><span class="line"></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        instance_id로 instance_name을 가져온다.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_instance_info</span><span class="params">(instance_id)</span>:</span></span><br><span class="line">        desc_ins_res = ec2_client.describe_instances(</span><br><span class="line">            InstanceIds=[</span><br><span class="line">                instance_id</span><br><span class="line">            ],</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        instance_name = [tag.get(<span class="string">'Value'</span>) <span class="keyword">for</span> tag <span class="keyword">in</span> desc_ins_res[<span class="string">'Reservations'</span>][<span class="number">0</span>][<span class="string">'Instances'</span>][<span class="number">0</span>][<span class="string">'Tags'</span>] <span class="keyword">if</span> tag[<span class="string">'Key'</span>] == <span class="string">'Name'</span>][<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> instance_name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">        instance_name에 해당하는 최근 백업 AMI id를 가져온다.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_recent_ami</span><span class="params">(instance_name)</span>:</span></span><br><span class="line">        amis = &#123;&#125;</span><br><span class="line">        desc_img_res = ec2_client.describe_images(</span><br><span class="line">            Owners=[OWNER_ID],</span><br><span class="line">            Filters=[</span><br><span class="line">                &#123;<span class="string">"Name"</span>: <span class="string">"description"</span>, <span class="string">"Values"</span>: [<span class="string">"spot_instance_backup"</span>]&#125;,</span><br><span class="line">            ]</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> img <span class="keyword">in</span> desc_img_res[<span class="string">'Images'</span>]:</span><br><span class="line">            <span class="keyword">if</span> img[<span class="string">'Name'</span>].find(instance_name) != <span class="number">-1</span>:</span><br><span class="line">                amis[img[<span class="string">'ImageId'</span>]] = str(img[<span class="string">'CreationDate'</span>])[:<span class="number">10</span>].replace(<span class="string">'-'</span>, <span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max(amis.items(), key=operator.itemgetter(<span class="number">1</span>))[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># spot interruption을 체크한다.</span></span><br><span class="line">    response = ec2_client.describe_spot_instance_requests(</span><br><span class="line">        Filters=[</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="string">'Name'</span>: <span class="string">'state'</span>,</span><br><span class="line">                <span class="string">'Values'</span>: [</span><br><span class="line">                    <span class="string">'open'</span>,</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">        ],</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> len(response[<span class="string">'SpotInstanceRequests'</span>]) &gt; <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">        today = datetime.today()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># spot instance 생성중에 발생한 이벤트인지 검사한다.</span></span><br><span class="line">        <span class="keyword">for</span> ins <span class="keyword">in</span> response[<span class="string">'SpotInstanceRequests'</span>]:</span><br><span class="line">            delta = today - datetime.strptime(str(ins[<span class="string">'CreateTime'</span>])[:<span class="number">19</span>],<span class="string">"%Y-%m-%d %H:%M:%S"</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 스팟인스턴스 생성시간(CreateTime)이 현재시간의 차이(delta)가 300초 초과이면 발생한 이벤트가 spot_interruption이라고 판단한다.</span></span><br><span class="line">            <span class="keyword">if</span> delta.seconds &gt; <span class="number">300</span>:</span><br><span class="line">                <span class="comment">#텔레그램으로 알람</span></span><br><span class="line">                bot.sendMessage(chat_id=TELEGRAM_CHAT_ID, text=<span class="string">'Spot Instance Interruption Occur!'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 백업본이 있는지 알아본다.</span></span><br><span class="line">                <span class="comment"># instance_id로 name을 가져오고 name으로 최근백업 AMI id를 가져온다.</span></span><br><span class="line">                instance_name = get_instance_info(ins[<span class="string">'InstanceId'</span>])</span><br><span class="line">                ami_id = get_recent_ami(instance_name)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                <span class="comment">#최신백업본이 존재하는경우 spot request를 취소하고 새로운 스팟인스턴스를 만든다.</span></span><br><span class="line">                <span class="keyword">if</span> ami_id != <span class="literal">None</span>:</span><br><span class="line">                    <span class="comment">#기존 인스턴스에 할당된 elaticIp정보를 가져온다.</span></span><br><span class="line">                    desc_ip_res = ec2_client.describe_addresses(</span><br><span class="line">                        Filters=[</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="string">'Name'</span>: <span class="string">'instance-id'</span>,</span><br><span class="line">                                <span class="string">'Values'</span>: [</span><br><span class="line">                                    ins[<span class="string">'InstanceId'</span>],</span><br><span class="line">                                ]</span><br><span class="line">                            &#125;,</span><br><span class="line">                        ],</span><br><span class="line">                    )</span><br><span class="line"></span><br><span class="line">                    public_ip = desc_ip_res[<span class="string">'Addresses'</span>][<span class="number">0</span>][<span class="string">'PublicIp'</span>]</span><br><span class="line">                    allocation_id =  desc_ip_res[<span class="string">'Addresses'</span>][<span class="number">0</span>][<span class="string">'AllocationId'</span>]</span><br><span class="line"></span><br><span class="line">                    <span class="comment">#기존인스턴스의 태그정보를 가져온다.</span></span><br><span class="line">                    desc_ins_res = ec2_client.describe_instances(</span><br><span class="line">                        InstanceIds=[</span><br><span class="line">                            ins[<span class="string">'InstanceId'</span>]</span><br><span class="line">                        ],</span><br><span class="line">                    )</span><br><span class="line">                    tags = desc_ins_res[<span class="string">'Reservations'</span>][<span class="number">0</span>][<span class="string">'Instances'</span>][<span class="number">0</span>][<span class="string">'Tags'</span>]</span><br><span class="line">                    print(<span class="string">'old_instance_tags : &#123;&#125;'</span>.format(json.dumps(tags, indent=<span class="number">4</span>, sort_keys=<span class="literal">True</span>, default=str)))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 스팟 리퀘스트를 취소한다.</span></span><br><span class="line">                    cancel_res = ec2_client.cancel_spot_instance_requests(</span><br><span class="line">                        SpotInstanceRequestIds=[</span><br><span class="line">                            ins[<span class="string">'SpotInstanceRequestId'</span>]</span><br><span class="line">                                                ]</span><br><span class="line">                    )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 스팟인스턴스 가격을 가져온다.</span></span><br><span class="line">                    sph_res = ec2_client.describe_spot_price_history(</span><br><span class="line">                        Filters=[</span><br><span class="line">                            &#123;</span><br><span class="line">                                <span class="string">'Name'</span>: <span class="string">'product-description'</span>,</span><br><span class="line">                                <span class="string">'Values'</span>: [</span><br><span class="line">                                    ins[<span class="string">'ProductDescription'</span>],</span><br><span class="line">                                ]</span><br><span class="line">                            &#125;,</span><br><span class="line">                        ],</span><br><span class="line">                        AvailabilityZone=ins[<span class="string">'LaunchedAvailabilityZone'</span>],</span><br><span class="line">                        InstanceTypes=[</span><br><span class="line">                            ins[<span class="string">'LaunchSpecification'</span>][<span class="string">'InstanceType'</span>]</span><br><span class="line">                        ],</span><br><span class="line"></span><br><span class="line">                    )</span><br><span class="line"></span><br><span class="line">                    spot_price = sph_res[<span class="string">'SpotPriceHistory'</span>][<span class="number">0</span>][<span class="string">'SpotPrice'</span>]</span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 새로운 spot 인스턴스를 생성한다.</span></span><br><span class="line">                    spot_create_res = ec2_client.request_spot_instances(</span><br><span class="line"></span><br><span class="line">                        InstanceCount=<span class="number">1</span>,</span><br><span class="line">                        LaunchSpecification=&#123;</span><br><span class="line">                            <span class="string">'SecurityGroupIds'</span>: [sg.get(<span class="string">'GroupId'</span>) <span class="keyword">for</span> sg <span class="keyword">in</span> ins[<span class="string">'LaunchSpecification'</span>][<span class="string">'SecurityGroups'</span>]],</span><br><span class="line">                            <span class="string">'ImageId'</span>: ami_id,</span><br><span class="line">                            <span class="string">'InstanceType'</span>: ins[<span class="string">'LaunchSpecification'</span>][<span class="string">'InstanceType'</span>],</span><br><span class="line">                            <span class="string">'KeyName'</span>: ins[<span class="string">'LaunchSpecification'</span>][<span class="string">'KeyName'</span>],</span><br><span class="line">                            <span class="string">'SubnetId'</span>: ins[<span class="string">'LaunchSpecification'</span>][<span class="string">'SubnetId'</span>],</span><br><span class="line">                        &#125;,</span><br><span class="line">                        SpotPrice=spot_price,</span><br><span class="line">                        Type=<span class="string">'persistent'</span>,</span><br><span class="line">                        InstanceInterruptionBehavior=<span class="string">'stop'</span></span><br><span class="line">                    )</span><br><span class="line"></span><br><span class="line">                    spot_req_id = spot_create_res[<span class="string">'SpotInstanceRequests'</span>][<span class="number">0</span>][<span class="string">'SpotInstanceRequestId'</span>]</span><br><span class="line">                    print(<span class="string">'spot_req_id : &#123;&#125;'</span>.format(<span class="string">"spot_req_id : &#123;&#125;"</span>.format(spot_req_id)))</span><br><span class="line"></span><br><span class="line">                    time.sleep(<span class="number">30</span>)</span><br><span class="line"></span><br><span class="line">                    desc_spot_res = ec2_client.describe_spot_instance_requests(SpotInstanceRequestIds=[spot_req_id])</span><br><span class="line"></span><br><span class="line">                    instance_id = desc_spot_res[<span class="string">'SpotInstanceRequests'</span>][<span class="number">0</span>][<span class="string">'InstanceId'</span>]</span><br><span class="line">                    print( <span class="string">"instance_id : &#123;&#125;"</span>.format(instance_id))</span><br><span class="line"></span><br><span class="line">                    <span class="comment">#spot interruption이 발생한 인스턴스를 종료한다.</span></span><br><span class="line">                    ec2_client.terminate_instances(</span><br><span class="line">                        InstanceIds=[</span><br><span class="line">                            ins[<span class="string">'InstanceId'</span>]</span><br><span class="line">                        ],</span><br><span class="line">                    )</span><br><span class="line">                    time.sleep(<span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">                    <span class="comment">#기존 인스턴스 가지고 있던 IP를 할당한다.</span></span><br><span class="line">                    response = ec2_client.associate_address(</span><br><span class="line">                        AllocationId=allocation_id,</span><br><span class="line">                        InstanceId=instance_id,</span><br><span class="line">                    )</span><br><span class="line"></span><br><span class="line">                    <span class="comment">#기존 인스턴스 가지고 있던 Tag를 설정한다.</span></span><br><span class="line">                    ec2_client.create_tags(</span><br><span class="line">                        Resources=[instance_id],</span><br><span class="line">                        Tags=[tags]</span><br><span class="line">                    )</span><br><span class="line"></span><br><span class="line">                    <span class="comment"># 인스턴스가 생성되었음을 알린다.</span></span><br><span class="line">                    bot.sendMessage(chat_id=TELEGRAM_CHAT_ID, text=<span class="string">'Spot instance renew : &#123;&#125;'</span>.format(spot_create_res[<span class="string">'SpotInstanceRequests'</span>][<span class="number">0</span>][<span class="string">'InstanceId'</span>]))</span><br></pre></td></tr></table></figure>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://bozwell.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 bozwell<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="bozwell">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="python argparse">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Lazy Cat, IT Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>python argparse - Lazy Cat, IT Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lazy Cat, IT Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://bozwell.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>python argparse</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2019-11-27
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>자주 반복하는 업무를 효율적으로 처리하기 위해 커맨드 라인 툴을 만들고 있다. </p>
+<p>먼저 python 으로 만들어 보고 있는데, <a href="https://docs.python.org/ko/3/library/argparse.html" target="_blank" rel="noopener">argparse 공식문서</a>를 보니, 내가 게으른 것인지 진도가 잘 나가지 않았다.</p>
+<p>세부적인 것은 나중에 필요할 때 공식문서를 참고 하더라도, 퀵하게 보고 따라할 수 있는 예제가 있으면 좋겠다는 생각으로 찾아보니 대부분의 검색되는 포스트들이 공식문서를 보고 정리한 정도의 문서여서 영어로 검색해 보니 <a href="https://pymotw.com/2/argparse/" target="_blank" rel="noopener">괜찮은 문서</a>를 발견했다.  </p>
+<p>예제</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'-s'</span>, action=<span class="string">'store'</span>, dest=<span class="string">'simple_value'</span>,</span><br><span class="line">                    help=<span class="string">'Store a simple value'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'-c'</span>, action=<span class="string">'store_const'</span>, dest=<span class="string">'constant_value'</span>,</span><br><span class="line">                    const=<span class="string">'value-to-store'</span>,</span><br><span class="line">                    help=<span class="string">'Store a constant value'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'-t'</span>, action=<span class="string">'store_true'</span>, default=<span class="literal">False</span>,</span><br><span class="line">                    dest=<span class="string">'boolean_switch'</span>,</span><br><span class="line">                    help=<span class="string">'Set a switch to true'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'-f'</span>, action=<span class="string">'store_false'</span>, default=<span class="literal">False</span>,</span><br><span class="line">                    dest=<span class="string">'boolean_switch'</span>,</span><br><span class="line">                    help=<span class="string">'Set a switch to false'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'-a'</span>, action=<span class="string">'append'</span>, dest=<span class="string">'collection'</span>,</span><br><span class="line">                    default=[],</span><br><span class="line">                    help=<span class="string">'Add repeated values to a list'</span>,</span><br><span class="line">                    )</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'-A'</span>, action=<span class="string">'append_const'</span>, dest=<span class="string">'const_collection'</span>,</span><br><span class="line">                    const=<span class="string">'value-1-to-append'</span>,</span><br><span class="line">                    default=[],</span><br><span class="line">                    help=<span class="string">'Add different values to list'</span>)</span><br><span class="line">parser.add_argument(<span class="string">'-B'</span>, action=<span class="string">'append_const'</span>, dest=<span class="string">'const_collection'</span>,</span><br><span class="line">                    const=<span class="string">'value-2-to-append'</span>,</span><br><span class="line">                    help=<span class="string">'Add different values to list'</span>)</span><br><span class="line"></span><br><span class="line">parser.add_argument(<span class="string">'--version'</span>, action=<span class="string">'version'</span>, version=<span class="string">'%(prog)s 1.0'</span>)</span><br><span class="line"></span><br><span class="line">results = parser.parse_args()</span><br><span class="line">print(<span class="string">'simple_value     ='</span>, results.simple_value)</span><br><span class="line">print(<span class="string">'constant_value   ='</span>, results.constant_value)</span><br><span class="line">print(<span class="string">'boolean_switch   ='</span>, results.boolean_switch)</span><br><span class="line">print(<span class="string">'collection       ='</span>, results.collection)</span><br><span class="line">print(<span class="string">'const_collection ='</span>, results.const_collection)</span><br></pre></td></tr></table></figure>
+<p><strong>store</strong> - 인자값을 저장한다. 위의 예제에서는 <strong>-s</strong> 뒤에 오는 값은 dest(simple_value)에 저장된다.</p>
+<p><strong>store_const</strong> - const에 지정된 값(value-to-store)이 dest(constant_value)에 저장된다.</p>
+<p><strong>store_true</strong> -  dest(boolean_switch)에 True를 저장한다.</p>
+<p><strong>store_false</strong> -  dest(boolean_switch)에 False를 저장한다.</p>
+<p><strong>append</strong> - 인자를 리스트 형태로 저장한다. 옵션을 여러번 지정할 때 유용하다고 한다.</p>
+<p><strong>append_const</strong> - const에 지정된 값을 리스트형대로 저장한다.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://bozwell.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2019 bozwell<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
