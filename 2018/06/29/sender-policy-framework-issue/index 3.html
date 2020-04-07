@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Lazy Cat, IT Blog">
+        <meta property="og:title" content="sender_policy_framework_issue">
     
 
     <!--Open Graph Description-->
@@ -36,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>아카이브: 2020/4 - Lazy Cat, IT Blog</title>
+    <title>sender_policy_framework_issue - Lazy Cat, IT Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -157,62 +157,89 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2020/4</h1>
+                <div class="post-heading">
+                    <h1>sender_policy_framework_issue</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-06-29
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2020/04/07/persistentvolumeclaim-usage-monitoring/">
-        <h1 class="post-title archive">
-            PersistentVolumeClaim Usage Monitoring
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-07
-    </p>
-</div>
-            
-                <div class="post-preview">
-    <a href="/2020/04/05/storageclass-volumebindmode-for-multiple-az/">
-        <h1 class="post-title archive">
-            Multiple AZ k8s Cluster에서의 StorageClass VolumeBindMode
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-05
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Sender-Policy-Framework-관련정리"><a href="#Sender-Policy-Framework-관련정리" class="headerlink" title="Sender Policy Framework 관련정리"></a>Sender Policy Framework 관련정리</h1><h3 id="개요"><a href="#개요" class="headerlink" title="개요"></a>개요</h3><p>보스웰 회사에서는 G suite를 사용하고 있습니다. 본 문서는 최근 회사 메일로 발송하는 이메일이 수신되지 않는 이슈와 관련하여 비즈니스 목적으로 발송하는 메일이 스팸으로 분류되지 않도록 하는 메일서버등록제(SPF: Sender Policy Framework)  관련 정보를  정리하였습니다.</p>
+<h3 id="SPF"><a href="#SPF" class="headerlink" title="SPF"></a>SPF</h3><p>spf는 대다수 스팸발송자가 자신의 신원을 감추기 위하여 발송자 주소나 전송경로를 허위로 표기하거나 변경하는 경우가 많다는데 착안하여 메일서버 정보를 사전에 DNS에 공개 등록함으로써 수신자로 하여금 이메일에 발송자 정보가 실제 메일서버의 정보와 일치하는지를 확일할 수 있도록 하는 인증기술입니다.</p>
+<blockquote>
+<p><strong>SPF</strong>를 이용한 이메일 인증절차 </p>
+<p>발신자 : 자신의 메일서버 정보와 정책을 나타내는 SPF레코드를 해당 DNS에 등록 </p>
+<p>수신자 : 이메일 수신시 발송자의 DNS에 등록된 SPF레코드를 확인하여 해당 이메일에 표시된 발송IP와 대조하고 그 결과값에 따라 수신여부를 결정(메일서버나 스팸차단 솔루션에 SPF 확인 기능이 설치되어 있어야 함) </p>
+</blockquote>
+<blockquote>
+<p><strong>SPF</strong>개발 및 도입현황<br> 1998년 Paul Vixie의 ‘Repudiating Mail From’에서 처음으로 아이디어가 제안된 이후 </p>
+<p>Pobox.com의 Meng Weng Wong에 의해 SPF가 개발됨<br> 2004년 2월 IETF(Internet Engineering Task Force)에 공식 RFC(Request For </p>
+<p>Comments)로 제안되었으며, 2004년 12월 SPF의 모든 기술적 내용들이 최종 완성됨 </p>
+<p>SPF는 타 인증기술에 비해 적용이 용이하고 호환성이 좋으며 오픈소스를 기반으로 하므로 전 세계적으로 폭넓은 지지기반을 확보하고 있음<br> 한국을 비롯한 미국, 캐나다, 일본 등 여러 국가들이 정부차원에서 사업자들을 대상으로 SPF 레코드 출판 및 확인기능 도입을 통한 스팸차단 활용을 적극 권고하고 있음 </p>
+</blockquote>
+<h3 id="SPF-설정"><a href="#SPF-설정" class="headerlink" title="SPF 설정"></a>SPF 설정</h3><p>네임서버 설정<strong>(cloudflare)
+</strong> 보스웰 회사 도메인은 클라우드플레어에 등록하여 사용하고 있습니다. cloudflare 어드민페이지에서 아래의 이미지와 같이 TXT Record를 정보를 등록합니다. 아래의 설정의 예에서 ipv4:167.89.72.209 는 cloudflare ip를 나타냅니다.</p>
+<p> <img src="/images/spf_image1-1.png" alt="Alt text"></p>
+<h3 id="도메인키-발급-google-g-suite"><a href="#도메인키-발급-google-g-suite" class="headerlink" title="도메인키 발급(google g suite)"></a>도메인키 발급(google g suite)</h3><p> 보스웰 회사의 도메인의 email service는 google Apps service를 이용하고 있습니다. 따라서 domain key를 발급하기 위해서는, google apps admin 권한을 가진 administrator가 google apps admin page(<a href="https://admin.google.com)에" target="_blank" rel="noopener">https://admin.google.com)에</a> 접속해서 발급해야 합니다. </p>
+<p>관리 콘솔 -&gt; 앱 -&gt; G Suite -&gt; Gmail -&gt; 이메일인증 -&gt; { 원하는 domain을 선택합니다.} 도메인을 선택하면, 아래 그림 처럼 현재 이메일 인증 상태인지가 표시됩니다. </p>
+<p> <img src="/images/spf_image2.png" alt="Alt text"></p>
+<p>이 세팅을 이용해, 인증을 설정하거나, 인증을 중지시킬 수 있습니다. DKIM(Domain Keys Identified Mail)에 대한 DNS 설정을 포함한 자세한 정보는 G Suite 관리자 고객센터 웹 페이지를 참조하시면 됩니다. </p>
+<h3 id="참고"><a href="#참고" class="headerlink" title="참고"></a>참고</h3><ul>
+<li><p>spf 레코드 정보 </p>
+<p><a href="https://support.google.com/a/answer/33786?hl=ko" target="_blank" rel="noopener">https://support.google.com/a/answer/33786?hl=ko</a> </p>
+</li>
+<li><p>spf 서명을 테스트하는 방법<br><a href="http://www.appmaildev.com/ko/spf" target="_blank" rel="noopener">http://www.appmaildev.com/ko/spf</a> </p>
+</li>
+<li><p>spf관련 sendgrid 관련자료<br><a href="https://sendgrid.com/docs/Glossary/spf.html" target="_blank" rel="noopener">https://sendgrid.com/docs/Glossary/spf.html</a> </p>
+</li>
+<li><p>DKIM 정보<br><a href="https://support.google.com/a/answer/174124" target="_blank" rel="noopener">https://support.google.com/a/answer/174124</a> </p>
+</li>
 </ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />

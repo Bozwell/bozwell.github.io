@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Lazy Cat, IT Blog">
+        <meta property="og:title" content="PersistentVolumeClaim Usage Monitoring">
     
 
     <!--Open Graph Description-->
@@ -36,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>아카이브: 2020/4 - Lazy Cat, IT Blog</title>
+    <title>PersistentVolumeClaim Usage Monitoring - Lazy Cat, IT Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -157,62 +157,83 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2020/4</h1>
+                <div class="post-heading">
+                    <h1>PersistentVolumeClaim Usage Monitoring</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-04-07
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/k8s/">#k8s</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/04/07/persistentvolumeclaim-usage-monitoring/">
-        <h1 class="post-title archive">
-            PersistentVolumeClaim Usage Monitoring
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-07
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2020/04/05/storageclass-volumebindmode-for-multiple-az/">
-        <h1 class="post-title archive">
-            Multiple AZ k8s Cluster에서의 StorageClass VolumeBindMode
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-05
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>mysql, redis을 StatefulSet으로 구성해서 사용하고 있고, pvc가 연결되어 있는데, 디스크가 가득차서 장애가 발생하여</p>
+<p>Prometheus에서 pvc 사용량을 모니터링할 수 있는 찾아보았다.</p>
+<p>Metric은 아래와 같다.</p>
+<ul>
+<li>kubelet_volume_stats_available_bytes</li>
+<li>kubelet_volume_stats_capacity_bytes</li>
 </ul>
+<p>사용률을 계산하기 위한 쿼리</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100-((kubelet_volume_stats_available_bytes*100)/kubelet_volume_stats_capacity_bytes)</span><br></pre></td></tr></table></figure>
+<p>Grafana 설정, Legend는 으로  사용하였다.</p>
+<p><img src="/images/grafana.png" alt="grafana.png"></p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />

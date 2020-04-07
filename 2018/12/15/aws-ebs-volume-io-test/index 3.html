@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Lazy Cat, IT Blog">
+        <meta property="og:title" content="aws ebs volume io test">
     
 
     <!--Open Graph Description-->
@@ -36,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>아카이브: 2020/4 - Lazy Cat, IT Blog</title>
+    <title>aws ebs volume io test - Lazy Cat, IT Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -157,62 +157,151 @@
 </nav>
 
     <!-- Main Content -->
-    
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
 
-<!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>2020/4</h1>
+                <div class="post-heading">
+                    <h1>aws ebs volume io test</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2018-12-15
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/DEVOPS/">#DEVOPS</a> <a href="/tags/AWS/">#AWS</a> <a href="/tags/EBS/">#EBS</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
             
-                <div class="post-preview">
-    <a href="/2020/04/07/persistentvolumeclaim-usage-monitoring/">
-        <h1 class="post-title archive">
-            PersistentVolumeClaim Usage Monitoring
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-07
-    </p>
-</div>
+
+            <!-- Gallery -->
             
-                <div class="post-preview">
-    <a href="/2020/04/05/storageclass-volumebindmode-for-multiple-az/">
-        <h1 class="post-title archive">
-            Multiple AZ k8s Cluster에서의 StorageClass VolumeBindMode
-        </h1>
-    </a>
-    <p class="post-meta archive">
-        <!-- Date and Author -->
-        
-        2020-04-05
-    </p>
-</div>
-            
-            <div class="archive-before-pagination"></div>
-            <ul class="pager">
-    
-    
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>AWS EBS Volume 타입별로 IO 성능이 어떻게 차이가 나는지 알아보고자 테스트를 진행했다.</p>
+<p>시험환경</p>
+<ul>
+<li>ubuntu 16.04</li>
+<li>sysbench 0.4.2</li>
+<li>ext4</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>instance_type</th>
+<th>volume_type</th>
+<th>size/iops</th>
+<th>volume_count</th>
+<th>description</th>
+<th>result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>m4.large</td>
+<td>general purpose SSD(gp2)</td>
+<td>100G/300</td>
+<td>1</td>
+<td>100G 300iops EBS Volume 1개로 테스트</td>
+<td>48.6Mb/sec</td>
+</tr>
+<tr>
+<td>m4.large</td>
+<td>general purpose SSD(gp2)</td>
+<td>50G/150</td>
+<td>2</td>
+<td>50G 150iops EBS Volume 2개를 LVM striped logical volume 으로 구성하여 테스트</td>
+<td>97Mb/sec</td>
+</tr>
+<tr>
+<td>m4.large</td>
+<td>general purpose SSD(gp2)</td>
+<td>50G/150</td>
+<td>4</td>
+<td>50G 150iops EBS Volume 4개를 LVM striped logical volume 으로 구성하여 테스트</td>
+<td>128Mb/sec</td>
+</tr>
+<tr>
+<td>m4.large</td>
+<td>provisioned IOPS SSD(io1)</td>
+<td>200G/2000</td>
+<td>1</td>
+<td>200G 2000iops EBS Volume 1개로 테스트</td>
+<td>32Mb/sec</td>
+</tr>
+<tr>
+<td>m4.large</td>
+<td>provisioned IOPS SSD(io1)</td>
+<td>50G/2000</td>
+<td>2</td>
+<td>50G 2000iops EBS Volume 2개를 LVM striped logical volume 으로 구성하여 테스트</td>
+<td>64Mb/sec</td>
+</tr>
+<tr>
+<td>m5d.large</td>
+<td>NVMe</td>
+<td>75G</td>
+<td>1</td>
+<td>m5d.large에 포함된 NVMe disk 를 같은 조건으로 테스트해 보았습니다.</td>
+<td>67.1Mb/sec</td>
+</tr>
+</tbody>
+</table>
+<p>결론</p>
+<ul>
+<li>SSD volume_type(gp2, io1)과 iops가 disk io throughput 상관관계는 없는것 같다.</li>
+<li><a href="https://charsyam.wordpress.com/2012/04/20/발-번역-페이스북이-쿨하게-1조에-산-instagram의-아키텍처/" target="_blank" rel="noopener">인스타그램 아키텍처</a>를 보니 안정적인 EBS Volume IO를 위해 raid구성을 한점을 참고해서 LVM으로 구성해 보았는데 EBS Volume를 여러개 묶었을때 IO성능이 많이 향상되는것을 볼수 있었다.</li>
+<li>NVMe type이 생각보다는 throughput이 높지 않아 이상했다.</li>
+</ul>
+<blockquote>
+<p>2019.6.12</p>
+<p>aws web console에서 Volume monitoring 탭에 보면 Burst Balance를 볼수 있다. iops는 io limitation 대한 값인것 같다. 어찌보면 클라우드 인프라 제공자로서는 당연한 생각인것 같다.</p>
+</blockquote>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
+</article>
 
     <!-- Footer -->
     <hr />
