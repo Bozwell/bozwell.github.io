@@ -196,9 +196,9 @@
                 <p>kops로 구성한 Multiple AvailableZone k8s cluster에서 Helm Chart(mysql)를 설치 하던중  리소스가 충분한 노드가 있음에도 불구하고 Pending 상태가 되는 현상이 발생했다. </p>
 <p>Pods를 Describe해보니 아래와 같은 이벤트를 확인할 수 있었다.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Events:</span><br><span class="line">  Type     Reason            Age               From               Message</span><br><span class="line">  ----     ------            ----              ----               -------</span><br><span class="line">  Warning  FailedScheduling  7s (x2 over 13s)  default-scheduler  pod has unbound immediate PersistentVolumeClaims</span><br><span class="line">  Warning  FailedScheduling  5s                default-scheduler  0/12 nodes are available: 1 node(s) had volume node affinity conflict, 3 node(s) had taints that the pod didn&apos;t tolerate, 8 Insufficient memory.</span><br></pre></td></tr></table></figure>
-<p>현상은 조사해 보니 pvc 는 c zone에 생성되었고, Pods는 a zone에 생성되어 발생한 문제였다.</p>
+<p>조사해 보니 pvc 는 c zone에 생성되었고, Pods는 a zone에 생성되어 발생한 문제였다.</p>
 <p>PersistentVolume과 Pod가 같은 zone에 생성되게 하기 위해 affiniry를 적용하는등 삽질은 하다가….. 해결책을 찾게 되었다.</p>
-<p>기본 StorageClass의 volumeBindingMode는  Immediate 로 되어 있는데, 라운드 로빈 방식으로 AvailableZone에 PersistentVolume이 생성된다고 한다, 쿠버네티스는 생성할 Pod의 Request Resource로 스케쥴링을 하므로 서로 다른 AvailableZone에 Pod와 pv가 생기는 문제가 생긴것 같다. </p>
+<p>기본 StorageClass의 volumeBindingMode는  Immediate 로 되어 있는데, 라운드로빈 방식으로 AvailableZone에 PersistentVolume이 생성된다고 한다, 쿠버네티스는 생성할 Pod의 Request Resource로 스케쥴링을 하므로 서로 다른 AvailableZone에 Pod와 pv가 생기는 문제가 생긴것 같다. </p>
 <p>문서를 찾아보니 volumeBindingMode: WaitForFirstConsumer 로 바꾸면 Pod가 먼저 생성되고 pvc가 같은 zone에 생성된다고 해서 적용해 보았다.</p>
 <p>기존의 default StorageClass를 수정하려고 하니 아래의 에러로 수정이 안되어 새로 생성하였다. </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volumeBindingMode: Invalid value: &quot;WaitForFirstConsumer&quot;: field is immutable</span><br></pre></td></tr></table></figure>
