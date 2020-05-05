@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="bozwell">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="MySQL Tunning">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Lazy Cat, IT Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>MySQL Tunning - Lazy Cat, IT Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lazy Cat, IT Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://bozwell.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>MySQL Tunning</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-04-10
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/mysql/">#mysql</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="프롤로그"><a href="#프롤로그" class="headerlink" title="프롤로그"></a>프롤로그</h2><p>현재 직장은 작은 스타트업이고,  내가 DBA역할도 수행해야 되는 상황이다. 여러가지 일로 신경이 분산되어 있는 상황에서 MySQL을 튜닝하지 못한채 dev, staging을 구축하였고, MySQL이 사망하시는 상황이 발생하여 많은 심적압박을 받게 되었다. 다시는 같은 문제로 이와같은 상황을 반복하지 않기 위해 그간의 경험을 정리해 본다. </p>
+<h2 id="MySQLTunner"><a href="#MySQLTunner" class="headerlink" title="MySQLTunner"></a>MySQLTunner</h2><p>Perl로 작성된 도구인데 사용방법도 간단하고 보안 취약점도 권고 해주는등 꽤 유용한 툴이다.</p>
+<p>지원되는 MySQL은 아래와 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">MySQL 8 (full support, password checks don&apos;t work)</span><br><span class="line">MySQL 5.7 (full support)</span><br><span class="line">MySQL 5.6 (full support)</span><br><span class="line">MySQL 5.5 (full support)</span><br><span class="line">MariaDB 10.4 (full support)</span><br><span class="line">MariaDB 10.3 (full support)</span><br><span class="line">MariaDB 10.2 (full support)</span><br><span class="line">MariaDB 10.1 (full support)</span><br><span class="line">MariaDB 10.0 (full support, 6 last month support)</span><br><span class="line">MariaDB 5.5 (full support, no more MariaDB support)</span><br><span class="line">Percona Server 8.0 (full support, password checks don&apos;t work)</span><br><span class="line">Percona Server 5.7 (full support)</span><br><span class="line">Percona Server 5.6 (full support)</span><br></pre></td></tr></table></figure>
+<p>다운로드</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ wget http://mysqltuner.pl/ -O mysqltuner.pl</span><br><span class="line">$ wget https://raw.githubusercontent.com/major/MySQLTuner-perl/master/basic_passwords.txt -O basic_passwords.txt</span><br><span class="line">$ wget https://raw.githubusercontent.com/major/MySQLTuner-perl/master/vulnerabilities.csv -O vulnerabilities.csv</span><br></pre></td></tr></table></figure>
+<p>실행</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ perl mysqltuner.pl --host &lt;MYSQL_NODE_IP&gt; --user &lt;ADMIN_USER&gt; --pass &lt;ADMIN-PASSWD&gt; --forcemem 16384</span><br></pre></td></tr></table></figure>
+<ul>
+<li>–host : mysql hostname or IP</li>
+<li>–user : mysql admin user</li>
+<li>–pass : mysql admin password</li>
+<li>–forcemem : mysql 머신의 물리 메모리, 위의 예는 16G</li>
+</ul>
+<p>실행결과</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"> &gt;&gt;  MySQLTuner 1.7.19 - Major Hayden &lt;major@mhtx.net&gt;</span><br><span class="line"> &gt;&gt;  Bug reports, feature requests, and downloads at http://mysqltuner.com/</span><br><span class="line"> &gt;&gt;  Run with &apos;--help&apos; for additional options and output filtering</span><br><span class="line"></span><br><span class="line">[--] Skipped version check for MySQLTuner script</span><br><span class="line">[--] Performing tests on mysql-master.boswell.com:3306</span><br><span class="line">[OK] Logged in using credentials passed on the command line</span><br><span class="line">[--] Assuming 16384 MB of physical memory</span><br><span class="line">[!!] Assuming 0 MB of swap space (use --forceswap to specify)</span><br><span class="line">[OK] Currently running supported MySQL version 8.0.19</span><br><span class="line"></span><br><span class="line">-------- Log file Recommendations ------------------------------------------------------------------</span><br><span class="line">[!!] Log file /opt/bitnami/mysql/logs/mysqld.log doesn&apos;t exist</span><br><span class="line"></span><br><span class="line">-------- Storage Engine Statistics -----------------------------------------------------------------</span><br><span class="line">[--] Status: +ARCHIVE +BLACKHOLE +CSV -FEDERATED +InnoDB +MEMORY +MRG_MYISAM +MyISAM +PERFORMANCE_SCHEMA</span><br><span class="line">[--] Data in InnoDB tables: 16.9G (Tables: 74)</span><br><span class="line">[OK] Total fragmented tables: 0</span><br><span class="line"></span><br><span class="line">-------- Analysis Performance Metrics --------------------------------------------------------------</span><br><span class="line">[--] innodb_stats_on_metadata: OFF</span><br><span class="line">[OK] No stat updates during querying INFORMATION_SCHEMA.</span><br><span class="line"></span><br><span class="line">-------- Security Recommendations ------------------------------------------------------------------</span><br><span class="line">[--] Skipped due to unsupported feature for MySQL 8</span><br><span class="line"></span><br><span class="line">-------- CVE Security Recommendations --------------------------------------------------------------</span><br><span class="line">[OK] NO SECURITY CVE FOUND FOR YOUR VERSION</span><br><span class="line"></span><br><span class="line">-------- Performance Metrics -----------------------------------------------------------------------</span><br><span class="line">[--] Up for: 21d 14h 32m 42s (349M q [187.114 qps], 3M conn, TX: 221G, RX: 181G)</span><br><span class="line">[--] Reads / Writes: 40% / 60%</span><br><span class="line">[--] Binary logging is enabled (GTID MODE: OFF)</span><br><span class="line">[--] Physical Memory     : 16.0G</span><br><span class="line">[--] Max MySQL memory    : 25.0G</span><br><span class="line">[--] Other process memory: 0B</span><br><span class="line">[--] Total buffers: 8.0G global + 17.4M per thread (1000 max threads)</span><br><span class="line">[--] P_S Max memory usage: 72B</span><br><span class="line">[--] Galera GCache Max memory usage: 0B</span><br><span class="line">[OK] Maximum reached memory usage: 9.6G (60.23% of installed RAM)</span><br><span class="line">[!!] Maximum possible memory usage: 25.0G (156.44% of installed RAM)</span><br><span class="line">[!!] Overall possible memory usage with other process exceeded memory</span><br><span class="line">[OK] Slow queries: 0% (36/349M)</span><br><span class="line">[OK] Highest usage of available connections: 9% (94/1000)</span><br><span class="line">[!!] Aborted connections: 68.92%  (2098790/3045215)</span><br><span class="line">[--] Query cache have been removed in MySQL 8</span><br><span class="line">[OK] Sorts requiring temporary tables: 0% (7 temp sorts / 8K sorts)</span><br><span class="line">[OK] No joins without indexes</span><br><span class="line">[OK] Temporary tables created on disk: 0% (0 on disk / 1M total)</span><br><span class="line">[OK] Thread cache hit rate: 99% (232 created / 3M connections)</span><br><span class="line">[OK] Table cache hit rate: 75% (1K open / 1K opened)</span><br><span class="line">[OK] table_definition_cache(2000) is upper than number of tables(383)</span><br><span class="line">[OK] Open file limit used: 0% (20/1M)</span><br><span class="line">[OK] Table locks acquired immediately: 100% (824K immediate / 824K locks)</span><br><span class="line">[OK] Binlog cache memory access: 100.00% (59616511 Memory / 59619344 Total)</span><br><span class="line"></span><br><span class="line">-------- Performance schema ------------------------------------------------------------------------</span><br><span class="line">[--] Memory used by P_S: 72B</span><br><span class="line">[--] Sys schema is installed.</span><br><span class="line"></span><br><span class="line">-------- ThreadPool Metrics ------------------------------------------------------------------------</span><br><span class="line">[--] ThreadPool stat is disabled.</span><br><span class="line"></span><br><span class="line">-------- MyISAM Metrics ----------------------------------------------------------------------------</span><br><span class="line">[--] MyISAM Metrics are disabled on last MySQL versions.</span><br><span class="line"></span><br><span class="line">-------- InnoDB Metrics ----------------------------------------------------------------------------</span><br><span class="line">[--] InnoDB is enabled.</span><br><span class="line">[--] InnoDB Thread Concurrency: 0</span><br><span class="line">[OK] InnoDB File per table is activated</span><br><span class="line">[!!] InnoDB buffer pool / data size: 8.0G/16.9G</span><br><span class="line">[!!] Ratio InnoDB log file size / InnoDB Buffer pool size (1.171875 %): 48.0M * 2/8.0G should be equal to 25%</span><br><span class="line">[!!] InnoDB buffer pool instances: 4</span><br><span class="line">[--] Number of InnoDB Buffer Pool Chunk : 64 for 4 Buffer Pool Instance(s)</span><br><span class="line">[OK] Innodb_buffer_pool_size aligned with Innodb_buffer_pool_chunk_size &amp; Innodb_buffer_pool_instances</span><br><span class="line">[OK] InnoDB Read buffer efficiency: 100.00% (1431041381 hits/ 1431045532 total)</span><br><span class="line">[!!] InnoDB Write Log efficiency: 70.45% (358651841 hits/ 509105503 total)</span><br><span class="line">[OK] InnoDB log waits: 0.00% (0 waits / 150453662 writes)</span><br><span class="line"></span><br><span class="line">-------- AriaDB Metrics ----------------------------------------------------------------------------</span><br><span class="line">[--] AriaDB is disabled.</span><br><span class="line"></span><br><span class="line">-------- TokuDB Metrics ----------------------------------------------------------------------------</span><br><span class="line">[--] TokuDB is disabled.</span><br><span class="line"></span><br><span class="line">-------- XtraDB Metrics ----------------------------------------------------------------------------</span><br><span class="line">[--] XtraDB is disabled.</span><br><span class="line"></span><br><span class="line">-------- Galera Metrics ----------------------------------------------------------------------------</span><br><span class="line">[--] Galera is disabled.</span><br><span class="line"></span><br><span class="line">-------- Replication Metrics -----------------------------------------------------------------------</span><br><span class="line">[--] Galera Synchronous replication: NO</span><br><span class="line">[--] This server is acting as master for 2 server(s).</span><br><span class="line">[--] Binlog format: ROW</span><br><span class="line">[--] XA support enabled: ON</span><br><span class="line">[--] Semi synchronous replication Master: Not Activated</span><br><span class="line">[--] Semi synchronous replication Slave: Not Activated</span><br><span class="line">[--] No replication setup for this server or replication not started.</span><br><span class="line"></span><br><span class="line">-------- Recommendations ---------------------------------------------------------------------------</span><br><span class="line">General recommendations:</span><br><span class="line">    Reduce your overall MySQL memory footprint for system stability</span><br><span class="line">    Dedicate this server to your database for highest performance.</span><br><span class="line">    Reduce or eliminate unclosed connections and network issues</span><br><span class="line">    Before changing innodb_log_file_size and/or innodb_log_files_in_group read this: https://bit.ly/2TcGgtU</span><br><span class="line">Variables to adjust:</span><br><span class="line">  *** MySQL&apos;s maximum memory usage is dangerously high ***</span><br><span class="line">  *** Add RAM before increasing MySQL buffer variables ***</span><br><span class="line">    innodb_buffer_pool_size (&gt;= 16.9G) if possible.</span><br><span class="line">    innodb_log_file_size should be (=1G) if possible, so InnoDB total log files size equals to 25% of buffer pool size.</span><br><span class="line">    innodb_buffer_pool_instances(=8)</span><br></pre></td></tr></table></figure>
+<h2 id="slow-query"><a href="#slow-query" class="headerlink" title="slow query"></a>slow query</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SET GLOBAL log_slow_slave_statements=ON;</span><br><span class="line">mysql&gt; SET GLOBAL log_queries_not_using_indexes=OFF;</span><br><span class="line">mysql&gt; SET GLOBAL slow_query_log=ON;</span><br><span class="line">mysql&gt; SET GLOBAL long_query_time=2;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>log_slow_slave_statements=ON : slave node에서 slow query log를 활성화한다.</li>
+<li>log_queries_not_using_indexes=OFF : index를 타지않는 쿼리까지 잡으면 로그가 너무 많을수 있으므로 일단 slow query부터 잡으려고 비활성화 하였다.</li>
+<li>slow_query_log=ON </li>
+<li>long_query_time=2 : 2초이상 소요되는 쿼리에 대해서 로깅한다.</li>
+</ul>
+<p>위와 같이 설정하면 data  디렉토리에 slow query log 생성될 것이다.  이 로그들을 요약해주는 툴이 있는데 바로 mysqldumpslow 이다.</p>
+<h2 id="mysqldumpslow"><a href="#mysqldumpslow" class="headerlink" title="mysqldumpslow"></a>mysqldumpslow</h2><p>mysql이 설치되어 있다면 기본적으로 포함되어 있다. </p>
+<p>사용법</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysqldumpslow slow_query_log &gt; summary.txt</span><br></pre></td></tr></table></figure>
+<h2 id="에필로그"><a href="#에필로그" class="headerlink" title="에필로그"></a>에필로그</h2><ul>
+<li>주기적으로 성능상태를 모니터링 하고 계획을 세우는것이 좋다.</li>
+<li>최근 벤치마크 테스트를 해보니 Aurora(mysql 5.7)의 성능이 괜찮았고, 기본적으로 튜닝이 되어 있어서 팀내에 DB 관리할 수 있는 리소가 충분하지 않다면 AWS RDS와 같이 managed 서비스를 고려하는것도 좋은것 같다.</li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://bozwell.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 bozwell<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
