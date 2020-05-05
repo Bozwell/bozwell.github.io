@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+
+    
+
+    
+        <meta name="description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="bozwell">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="mysql replication이 깨졌어요. ㅠㅠ">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="IT세상에서 살아가는 게으른 고양이의 블로그.">
+    
+
+    <!--Open Graph Site Name-->
+        <meta property="og:site_name" content="Lazy Cat, IT Blog">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+    
+        <meta property="og:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+        <meta name="twitter:card" content="summary_large_image">
+
+    
+
+    
+        <meta name="twitter:image" content="http://bozwell.github.iohttp://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg">
+    
+
+    <!-- Title -->
+    
+    <title>mysql replication이 깨졌어요. ㅠㅠ - Lazy Cat, IT Blog</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Lazy Cat, IT Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/tags">
+                            
+                                Tags
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/categories">
+                            
+                                Categories
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://bozwell.github.io">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>mysql replication이 깨졌어요. ㅠㅠ</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-04-09
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/mysql/">#mysql</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h2 id="프롤로그"><a href="#프롤로그" class="headerlink" title="프롤로그"></a>프롤로그</h2><p>MySQL 8.X를 선택한 이유는 5.7에 비해서 최대 2배의 성능향상이 있다는 글을 보아서 였다. <a href="https://m.blog.naver.com/PostView.nhn?blogId=theswice&amp;logNo=221321015924&amp;proxyReferer=https:%2F%2Fwww.google.com%2F" target="_blank" rel="noopener">출처</a></p>
+<blockquote>
+<p>MySQL 8.0은 RW 및 heavy write workload에서 잘 확장됩니다. 집중적인 RW workload에서 우리는 이미 4명의 동시 사용자로부터 더 나은 성능을 보았고 MySQL 5.7과 비교하여 높은 부하에서 2배 이상의 성능을 보였습니다. 5.7은 Read Only workload의 확장성을 크게 개선했지만 8.0은 Read/Write workload의 확장성을 크게 향상시켰다고 말할 수 있습니다. 그 결과, MySQL은 표준 서버측 하드웨어 (CPU 소켓 2개가 있는 시스템처럼)의 하드웨어 활용도 (효율성)를 향상시킵니다. 이 개선은 InnoDB가 REDO 로그에 기록하는 방법을 재설계하기 때문입니다. 사용자 스레드가 데이터 변경 사항을 기록하기 위해 끊임없이 노력한 역사적인 구현과는 달리, 새로운 REDO 로그 솔루션에서는 사용자 스레드가 이제 잠금이 해제되고 REDO 쓰기 및 플러시가 전용 백그라운드 스레드에 의해 관리되며 전체 REDO 처리가 이벤트가 됩니다.</p>
+</blockquote>
+<p><a href="https://github.com/akopytov/sysbench" target="_blank" rel="noopener">sysbench</a>로 테스트해 보니 1.2배정도의 성능향상이 관찰 되었다. 참고로 sysbench는 Percona CEO Peter Zaitsev님이 작성한 툴인데, CPU, MEMORY, I/O, MySQL의 성능을 벤치마크할 수 있어 평소 애용하는 툴이다. Peter짱~ +_+  최고~</p>
+<p>AWS RDS를 사용하지 않은 이유는</p>
+<ul>
+<li>8.X을 지원하지 않는다.(2020년 4월 현재)</li>
+<li>MySQL 8.x이  Heavy Write Workload에 좋다는 점이 현 시스템 요구사항과 부합하는점</li>
+<li>상대적으로 가격이 비싸다. 특히 멀티 AZ 등 옵션을 추가하면.. -_-a</li>
+<li><del>과거 경험으로 보면 직접구축에 비해 성능이 낮다는 인식이 있다.</del>. 벤치마크를 해보니 Aurora는 성능이 나쁘지 않았다.</li>
+<li>테이블 생성시 MEMORY 엔진을 지원하지 않는다.</li>
+<li>디버깅을 위해 GENERAL Log을 활성화 하는경우 주의하지 않으면 요금 폭탄을 맞을수 있으며 cloudwatch를 통해 로그를 살펴보는것이 직접구축에 비해 불편하다.</li>
+<li>모니터링이 k8s, prometheus 조합에 비해 번거롭다. </li>
+</ul>
+<p>하지만 사용하면서 replication이 깨지는  이슈가 발생했고, 문제를 파악하고 해결하는 과정에서  느낀점은 아래와 같다.</p>
+<ul>
+<li>MySQL 기본 설정값으로 사용하면 많은 문제에 봉착한다.</li>
+<li>인터넷에 많을 글들이 있지만 가장 좋은 자료는 <a href="https://dev.mysql.com/doc/refman/8.0/en/" target="_blank" rel="noopener">mysql 8 reference manual</a> 이다.</li>
+<li>튜닝이 병행되지 않으면 replication이 깨지거나, 지연(lag)이 발생할 수 있다.</li>
+<li>튜닝은 MySQL 서버 설정 튜닝 및 query 튜닝이 병행되어야 한다.</li>
+</ul>
+<h2 id="MySQL-튜닝-시스템-변수-변경"><a href="#MySQL-튜닝-시스템-변수-변경" class="headerlink" title="MySQL 튜닝(시스템 변수 변경)"></a>MySQL 튜닝(시스템 변수 변경)</h2><p>mysql 성능, 네트워크 지연, 성능지연을 발생시키는 쿼리 등등 replication이 깨지거나, 지연(lag)이 발생하는 원인은 다양한것 같다.</p>
+<p>최근 발생한 MySQL replication 깨짐(2020.04.08)과 관련하여 원인을 찾아보니 range_optimizer_max_mem_size 관련된 <a href="https://dba.stackexchange.com/questions/232365/mysql-8-0-updates-are-sometimes-stalling" target="_blank" rel="noopener">이슈라는 글</a>은 보고 mysqld cnf에 적용시켜 보았다. 이 변수는 IN 과 같은 range query에 사용되며, 0의 의미는 가용한 메모리를 모두 사용한다는 의미이다. 아래를 적용하고 나서 4일정도 quant bot를 이용하여 부하를 발생시키고 모니터링 해보았으나 깨짐 현상과 같은 문제는 발견되지 않았다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range_optimizer_max_mem_size=0</span><br></pre></td></tr></table></figure>
+<p>이 외에도 적용할 수 있는 옵션은 아래와 같다.</p>
+<p><del>slave_compressed_protocol=ON</del> : 8.0.18에서 deprecated 됨 </p>
+<p>slave_parallel_workers=2 </p>
+<p>slave_parallel_type=LOGICAL_CLOCK</p>
+<p>이 밖에도 MySQL 성능과 관련하여 아래와 같은 시스템변수를 조정하였는데 이 설정은 <a href="https://github.com/major/MySQLTuner-perl" target="_blank" rel="noopener">mysqltunner</a> 를 사용하여 도출하였다.</p>
+<p>가장 중요한 것은 innodb_buffer_pool_size 인데, MySQL 8 reference manual에 따르면 전체 메모리의 50%로 설정하라고 가이드 하고 있다.</p>
+<p>innodb_buffer_pool_size=8589934592 </p>
+<p>join_buffer_size=524288 #이 값은 모니터링을 통해 조정이 필요하다.</p>
+<h2 id="MySQL-Replication-상태확인-및-복구절차"><a href="#MySQL-Replication-상태확인-및-복구절차" class="headerlink" title="MySQL Replication  상태확인 및 복구절차"></a>MySQL Replication  상태확인 및 복구절차</h2><p>MySQL slave 상태 확인(슬레이브 노드에서)</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW SLAVE STATUS\\G;</span><br></pre></td></tr></table></figure>
+<p>아래의 결과에서 보아야 할 값을 Last_IO_Errno, Last_SQL_Errno 이다. replication은 I/O thread, SQL thread로 나눠져 있는데, I/O thread는 bin_log를 가져오고 SQL thread는 이를 slave에 적용하는 역할이다. 이 숫자는 최근 발생한 에러가 의해 thread가 멈춘 횟수를 의미한다.</p>
+<p>참조:</p>
+<p><a href="https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/show-slave-status.html</a></p>
+<p>아래와 같은 결과라면 마음에 평화를 가져다 줄 것이다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">*************************** 1. row ***************************</span><br><span class="line">               Slave_IO_State: Waiting for master to send event</span><br><span class="line">                  Master_Host: mysql</span><br><span class="line">                  Master_User: replicator</span><br><span class="line">                  Master_Port: 3306</span><br><span class="line">                Connect_Retry: 10</span><br><span class="line">              Master_Log_File: mysql-bin.000005</span><br><span class="line">          Read_Master_Log_Pos: 88290638</span><br><span class="line">               Relay_Log_File: mysql-relay-bin.000012</span><br><span class="line">                Relay_Log_Pos: 88290852</span><br><span class="line">        Relay_Master_Log_File: mysql-bin.000005</span><br><span class="line">             Slave_IO_Running: Yes</span><br><span class="line">            Slave_SQL_Running: Yes</span><br><span class="line">              Replicate_Do_DB: </span><br><span class="line">          Replicate_Ignore_DB: </span><br><span class="line">           Replicate_Do_Table: </span><br><span class="line">       Replicate_Ignore_Table: </span><br><span class="line">      Replicate_Wild_Do_Table: </span><br><span class="line">  Replicate_Wild_Ignore_Table: </span><br><span class="line">                   Last_Errno: 0</span><br><span class="line">                   Last_Error: </span><br><span class="line">                 Skip_Counter: 0</span><br><span class="line">          Exec_Master_Log_Pos: 88290638</span><br><span class="line">              Relay_Log_Space: 88291107</span><br><span class="line">              Until_Condition: None</span><br><span class="line">               Until_Log_File: </span><br><span class="line">                Until_Log_Pos: 0</span><br><span class="line">           Master_SSL_Allowed: No</span><br><span class="line">           Master_SSL_CA_File: </span><br><span class="line">           Master_SSL_CA_Path: </span><br><span class="line">              Master_SSL_Cert: </span><br><span class="line">            Master_SSL_Cipher: </span><br><span class="line">               Master_SSL_Key: </span><br><span class="line">        Seconds_Behind_Master: 0</span><br><span class="line">Master_SSL_Verify_Server_Cert: No</span><br><span class="line">                Last_IO_Errno: 0</span><br><span class="line">                Last_IO_Error: </span><br><span class="line">               Last_SQL_Errno: 0</span><br><span class="line">               Last_SQL_Error: </span><br><span class="line">  Replicate_Ignore_Server_Ids: </span><br><span class="line">             Master_Server_Id: 586</span><br><span class="line">                  Master_UUID: 07010350-7d88-11ea-b7ad-02e15c9bea22</span><br><span class="line">             Master_Info_File: mysql.slave_master_info</span><br><span class="line">                    SQL_Delay: 0</span><br><span class="line">          SQL_Remaining_Delay: NULL</span><br><span class="line">      Slave_SQL_Running_State: Slave has read all relay log; waiting for more updates</span><br><span class="line">           Master_Retry_Count: 86400</span><br><span class="line">                  Master_Bind: </span><br><span class="line">      Last_IO_Error_Timestamp: </span><br><span class="line">     Last_SQL_Error_Timestamp: </span><br><span class="line">               Master_SSL_Crl: </span><br><span class="line">           Master_SSL_Crlpath: </span><br><span class="line">           Retrieved_Gtid_Set: </span><br><span class="line">            Executed_Gtid_Set: </span><br><span class="line">                Auto_Position: 0</span><br><span class="line">         Replicate_Rewrite_DB: </span><br><span class="line">                 Channel_Name: </span><br><span class="line">           Master_TLS_Version: </span><br><span class="line">       Master_public_key_path: </span><br><span class="line">        Get_master_public_key: 0</span><br><span class="line">            Network_Namespace: </span><br><span class="line">1 row in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
+<p>복구절차</p>
+<ul>
+<li>MicroService 들을 정지한다.(emergency)</li>
+<li>MySQL master 노드를 mysqldump로 백업한다.(아래의 예 참조)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysqldump -h&lt;MASTER-DB-NODE&gt; -uroot -p&lt;PASSWORD&gt; --databases &lt;DB-NAME&gt; &gt; dev-db.sql</span><br></pre></td></tr></table></figure>
+<ul>
+<li>DB를 truncate 한다.</li>
+<li>binlog를 삭제한다.</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; PURGE BINARY LOGS</span><br></pre></td></tr></table></figure>
+<ul>
+<li>MySQL master 노드에 데이터를 복구한다.</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mysql -h&lt;MASTER-DB-NODE&gt; -uroot -p&lt;PASSWORD&gt; &lt;DB-NAME&gt; &lt; dev-db.sql</span><br></pre></td></tr></table></figure>
+<ul>
+<li>MySQL slave 노드에 데이터가 싱크 되었는지 확인한다.</li>
+<li>MicroService 기동한다.</li>
+</ul>
+<h2 id="모니터링"><a href="#모니터링" class="headerlink" title="모니터링"></a>모니터링</h2><h3 id="replication-status-monitoring"><a href="#replication-status-monitoring" class="headerlink" title="replication  status monitoring"></a>replication  status monitoring</h3><p>replication에서 에러가 발생하는지 모니터링하기 위해 prometheus를 사용하였고, 아래의 3개의 metric으로 알람을 설정하였다.</p>
+<p>metric</p>
+<ul>
+<li>mysql_slave_status_last_errno</li>
+<li>mysql_slave_status_last_io_errno</li>
+<li>mysql_slave_status_last_sql_errno</li>
+</ul>
+<p>grafana 설정예</p>
+<p><img src="/images/mysql_replication_grafana1.png" alt="mysql_replication_grafana1"></p>
+<p><img src="/images/mysql_replication_grafana2.png" alt="mysql_replication_grafana2"></p>
+<h3 id="replication-lag-check"><a href="#replication-lag-check" class="headerlink" title="replication lag check"></a>replication lag check</h3><p> percona에서 만든 pt-heartbeat라는 툴인데, replication lag을 check 할수 있다</p>
+<p>download</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget percona.com/get/percona-toolkit.tar.gz</span><br></pre></td></tr></table></figure>
+<p>percona-toolkit을 다운로드 받고 압축을 헤제하면 bin 디렉토리 안에 다양한 실행파일들이 있는데, 대부분 perl로 작성되어서 Perl 실행환경이 기본 내장되어 있는 MACOSX, LINUX에서 사용 가능하다.</p>
+<p>prepare</p>
+<p>MySQL master node에서 lag 체크에 필요한 스키마와 테이블을 생성한다.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE DATABASE test;</span><br><span class="line">mysql&gt; USE test;</span><br><span class="line">mysql&gt; CREATE TABLE heartbeat (</span><br><span class="line">  ts                    varchar(26) NOT NULL,</span><br><span class="line">  server_id             int unsigned NOT NULL PRIMARY KEY,</span><br><span class="line">  file                  varchar(255) DEFAULT NULL,    </span><br><span class="line">  position              bigint unsigned DEFAULT NULL,</span><br><span class="line">  relay_master_log_file varchar(255) DEFAULT NULL,    </span><br><span class="line">  exec_master_log_pos   bigint unsigned DEFAULT NULL </span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>pt-heartbeat는 daemon 그리고 monitor 형태로 동작하는데..</p>
+<ul>
+<li>daemon은 위에서 만든 test.heartbeat 테이블을 주기적으로 업데이트 한다.</li>
+<li>monitor는 slave에서 test.heartbeat를 보고 lag있는지 체크한다.</li>
+</ul>
+<p>daemon 실행</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pt-heartbeat --daemonize -D <span class="built_in">test</span> --update -h &lt;MYSQL-MASTER-NODE&gt;</span><br></pre></td></tr></table></figure>
+<p>monitor 실행</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pt-heartbeat -D <span class="built_in">test</span> --master-server-id &lt;MYSQL-MASRER-ID&gt; --check &lt;MYSQL-SLAVE-NODE&gt;</span><br></pre></td></tr></table></figure>
+<p>monitor를 실행하면 3개의 값이 일정간격으로 화면에 표시되는데, 이들 값의 의미는 왼쪽부터 5, 10, 15분 평균 lag을 의미하고 resolution은 10ms 이다.</p>
+<h2 id="참조"><a href="#참조" class="headerlink" title="참조"></a>참조</h2><ul>
+<li><a href="https://dev.mysql.com/doc/refman/8.0/en/replication-options-slave.html" target="_blank" rel="noopener">https://dev.mysql.com/doc/refman/8.0/en/replication-options-slave.html</a></li>
+<li><a href="https://thoughts.t37.net/fixing-a-very-lagging-mysql-replication-db6eb5a6e15d" target="_blank" rel="noopener">https://thoughts.t37.net/fixing-a-very-lagging-mysql-replication-db6eb5a6e15d</a></li>
+<li><a href="https://www.percona.com/blog/2014/05/02/how-to-identify-and-cure-mysql-replication-slave-lag/" target="_blank" rel="noopener">https://www.percona.com/blog/2014/05/02/how-to-identify-and-cure-mysql-replication-slave-lag/</a></li>
+<li><a href="https://www.percona.com/doc/percona-toolkit/2.2/pt-heartbeat.html#" target="_blank" rel="noopener">https://www.percona.com/doc/percona-toolkit/2.2/pt-heartbeat.html#</a></li>
+<li><a href="http://manpages.ubuntu.com/manpages/trusty/man1/pt-heartbeat.1p.html" target="_blank" rel="noopener">http://manpages.ubuntu.com/manpages/trusty/man1/pt-heartbeat.1p.html</a></li>
+</ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://bozwell.github.io" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2020 bozwell<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

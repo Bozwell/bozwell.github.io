@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="Lazy Cat, IT Blog">
+        <meta property="og:title" content="Multiple AZ k8s Cluster에서의 StorageClass VolumeBindMode">
     
 
     <!--Open Graph Description-->
@@ -36,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -55,7 +55,7 @@
 
     <!-- Title -->
     
-    <title>page - Lazy Cat, IT Blog</title>
+    <title>Multiple AZ k8s Cluster에서의 StorageClass VolumeBindMode - Lazy Cat, IT Blog</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
@@ -158,113 +158,74 @@
 
     <!-- Main Content -->
     <!-- Page Header -->
-<!-- Set your background image for this header in the theme's configuration: index_cover -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
 <header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading">
-                    <h1>Lazy Cat, IT Blog</h1>
-                    <hr class="small">
-                    <span class="subheading">IT세상에서 살아가는 게으른 고양이의 블로그.</span>
+                <div class="post-heading">
+                    <h1>Multiple AZ k8s Cluster에서의 StorageClass VolumeBindMode</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        
+                            2020-04-05
+                        
+                    </span>
                 </div>
             </div>
         </div>
     </div>
 </header>
 
-<!-- Main Content -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            
-                <div class="post-preview">
-    <a href="/2019/03/26/spot-instance-backup-recover/">
-        <h2 class="post-title">
-            aws spot instance backup recover
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2019-03-26
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2019/03/18/how-to-delete-dangling-docker-resource/">
-        <h2 class="post-title">
-            how-to-delete-dangling-docker-resource
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2019-03-18
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2019/03/13/How-To-Set-Up-Multi-Factor-Authentication-for-SSH-on-Ubuntu-16-04/">
-        <h2 class="post-title">
-            How To Set Up Multi-Factor Authentication for SSH on Ubuntu 16.04
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2019-03-13
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/12/15/aws-ebs-volume-io-test/">
-        <h2 class="post-title">
-            aws ebs volume io test
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-12-15
-    </p>
-</div>
-<hr>
-            
-                <div class="post-preview">
-    <a href="/2018/06/29/sender-policy-framework-issue/">
-        <h2 class="post-title">
-            sender_policy_framework_issue
-        </h2>
-        
-    </a>
-    <p class="post-meta">
-        <!-- Date and Author -->
-        
-        2018-06-29
-    </p>
-</div>
-<hr>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
             
 
-            <ul class="pager">
-    
-        <li class="previous"><a href="/">&larr;  다음글</a></li>
-    
-    
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <p>kops로 구성한 Multiple AvailableZone k8s cluster에서 Helm Chart(mysql)를 설치 하던중  리소스가 충분한 노드가 있음에도 불구하고 Pending 상태가 되는 현상이 발생했다. </p>
+<p>Pods를 Describe해보니 아래와 같은 이벤트를 확인할 수 있었다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Events:</span><br><span class="line">  Type     Reason            Age               From               Message</span><br><span class="line">  ----     ------            ----              ----               -------</span><br><span class="line">  Warning  FailedScheduling  7s (x2 over 13s)  default-scheduler  pod has unbound immediate PersistentVolumeClaims</span><br><span class="line">  Warning  FailedScheduling  5s                default-scheduler  0/12 nodes are available: 1 node(s) had volume node affinity conflict, 3 node(s) had taints that the pod didn&apos;t tolerate, 8 Insufficient memory.</span><br></pre></td></tr></table></figure>
+<p>조사해 보니 pvc 는 c zone에 생성되었고, Pods는 a zone에 생성되어 발생한 문제였다.</p>
+<p>PersistentVolume과 Pod가 같은 zone에 생성되게 하기 위해 affiniry를 적용하는등 삽질은 하다가….. 해결책을 찾게 되었다.</p>
+<p>기본 StorageClass의 volumeBindingMode는  Immediate 로 되어 있는데, 라운드로빈 방식으로 AvailableZone에 PersistentVolume이 생성된다고 한다, 쿠버네티스는 생성할 Pod의 Request Resource로 스케쥴링을 하므로 서로 다른 AvailableZone에 Pod와 pv가 생기는 문제가 생긴것 같다. </p>
+<p>문서를 찾아보니 volumeBindingMode: WaitForFirstConsumer 로 바꾸면 Pod가 먼저 생성되고 pvc가 같은 zone에 생성된다고 해서 적용해 보았다.</p>
+<p>기존의 default StorageClass를 수정하려고 하니 아래의 에러로 수정이 안되어 새로 생성하였다. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">volumeBindingMode: Invalid value: &quot;WaitForFirstConsumer&quot;: field is immutable</span><br></pre></td></tr></table></figure>
+<p>standard-sc.yaml</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">apiVersion:</span> <span class="string">storage.k8s.io/v1</span></span><br><span class="line"><span class="attr">kind:</span> <span class="string">StorageClass</span></span><br><span class="line"><span class="attr">metadata:</span></span><br><span class="line"><span class="attr">  name:</span> <span class="string">standard</span></span><br><span class="line"><span class="attr">provisioner:</span> <span class="string">kubernetes.io/aws-ebs</span></span><br><span class="line"><span class="attr">parameters:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">gp2</span></span><br><span class="line"><span class="attr">reclaimPolicy:</span> <span class="string">Delete</span></span><br><span class="line"><span class="attr">allowVolumeExpansion:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">mountOptions:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">debug</span></span><br><span class="line"><span class="attr">volumeBindingMode:</span> <span class="string">WaitForFirstConsumer</span></span><br></pre></td></tr></table></figure>
+<p>Helm Chart에서 StorageClass를 생성한 standard로 지정해서 생성하니 깔끔하게 잘 배포된다.</p>
+<p>참조</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode" target="_blank" rel="noopener">https://kubernetes.io/docs/concepts/storage/storage-classes/#volume-binding-mode</a></li>
 </ul>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+
+
+                </div>
+            
         </div>
     </div>
-</div>
-
-
+</article>
 
     <!-- Footer -->
     <hr />
